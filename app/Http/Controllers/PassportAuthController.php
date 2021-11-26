@@ -21,7 +21,7 @@ class PassportAuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password)
-        ]);
+        ])->sendEmailVerificationNofication();
 
         $token = $user->createToken('LaravelAuthApp')->accessToken;
 
